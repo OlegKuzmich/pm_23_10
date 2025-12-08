@@ -66,6 +66,6 @@ function serve() {
 
 // Головна задача
 exports.default = series(
-    parallel(htmlTask, scssTask, jsTask, imgTask, bootstrapCSS, bootstrapJS),
+    parallel(htmlTask, scssTask, jsTask, imgTask,bootstrapCSS, bootstrapJS),
     serve
 );
