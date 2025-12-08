@@ -1,46 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const firstName = "MICHEL";
-    const lastName  = "RIGAURIO";
+    fetch("json/data.json")
+        .then(response => response.json())
+        .then(data => {
 
-    const firstEl = document.getElementById("firstName");
-    const lastEl  = document.getElementById("lastName");
+            const firstEl = document.getElementById("firstName");
+            const lastEl = document.getElementById("lastName");
 
-    if (firstEl) firstEl.textContent = firstName;
-    if (lastEl)  lastEl.textContent  = lastName;
+            if (firstEl) firstEl.textContent = data.firstName;
+            if (lastEl)  lastEl.textContent  = data.lastName;
 
-    const expertiseData = [
-        { percent: 90, name: "Adobe<br>Photoshop" },
-        { percent: 85, name: "Adobe<br>Illustrator" },
-        { percent: 75, name: "Adobe<br>Indesign" },
-        { percent: 80, name: "Power<br>Point" }
-    ];
+            const container = document.getElementById("expertiseList");
 
-    const container = document.getElementById("expertiseList");
+            if (container && data.expertise) {
+                container.innerHTML = "";
 
-    if (!container) return;
+                data.expertise.forEach(item => {
+                    const div = document.createElement("div");
+                    div.classList.add("expertise-item");
 
-    container.innerHTML = "";
+                    div.innerHTML = `
+                        <div class="circle p${item.percent}">
+                            <span>${item.name}</span>
+                        </div>
+                    `;
 
-    expertiseData.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("expertise-item");
+                    container.appendChild(div);
+                });
+            }
 
-        div.innerHTML = `
-            <div class="circle p${item.percent}">
-                <span>${item.name}</span>
-            </div>
-        `;
+            const arrow = document.getElementById("arrow");
 
-        container.appendChild(div);
-    });
+            if (arrow && aboutText) {
+                arrow.addEventListener("click", () => {
+                    aboutText.classList.toggle("open");
+                    arrow.classList.toggle("open");
+                });
+            }
+        })
 
-    const arrow = document.getElementById("arrow");
-    const text = document.getElementById("aboutText");
-
-    if (!arrow || !text) return;
-
-    arrow.addEventListener("click", () => {
-        text.classList.toggle("open");
-        arrow.classList.toggle("open");
-    });
+        .catch(err => console.error("JSON load error:", err));
 });

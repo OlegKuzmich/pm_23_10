@@ -54,6 +54,14 @@ const bootstrapJS = () => {
         .pipe(dest('dist/js'));
 }
 
+// --- JSON таска ---
+const json_task = () => {
+    return src('src/app/json/*.json')
+        .pipe(dest('dist/json'))
+        .pipe(browserSync.stream());
+};
+
+
 // BrowserSync
 function serve() {
     browserSync.init({
@@ -62,10 +70,11 @@ function serve() {
     watch('src/app/**/*.html', htmlTask);
     watch('src/app/**/*.scss', scssTask);
     watch('src/app/js/*.js', jsTask);
+    watch('src/app/json/*.json', json_task());
 }
 
 // Головна задача
 exports.default = series(
-    parallel(htmlTask, scssTask, jsTask, imgTask,bootstrapCSS, bootstrapJS),
+    parallel(htmlTask, scssTask, jsTask, imgTask, json_task ,bootstrapCSS, bootstrapJS),
     serve
 );
