@@ -99,7 +99,7 @@
   .address{
     font-family: v.$Montserrat;
     margin: 0 0 85px 0;
-    font-weight: 700;
+    font-weight: 500;
   }
 }
 
@@ -151,5 +151,28 @@
       font-weight: 500;
     }
   }
+}
+
+.arrow {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-left: 6px;
+}
+
+.arrow.open {
+  transform: rotate(-90deg);
+}
+
+.about-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.about-text.open {
+  max-height: 500px;
+  opacity: 1;
 }
 
