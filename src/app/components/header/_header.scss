@@ -80,4 +80,22 @@
   z-index: 2;
 }
 
+@media screen and (width<=991px) {
+  .header-information img{
+    right: 140px;
+  }
+  .yellow-small-rectangle {
+        margin-left: -200px;
+  }
+}
 
+@media screen and (width<=767px){
+  .header-information img{
+    right: 80px;
+  }
+  .yellow-small-rectangle{
+    width: 50px;
+    margin-top: 200px;
+    margin-left: -140px;
+  }
+}
