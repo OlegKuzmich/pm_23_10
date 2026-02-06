@@ -8,7 +8,6 @@
   background: v.$resume-bg;
 }
 
-
 .resume-inner {
   max-width: 870px;
   margin: 120px auto 90px auto ;
@@ -17,12 +16,20 @@
   position: relative;
 }
 
-
 .footer-colum-1{
   padding-top: 27px;
 }
 
 .footer-colum-2{
   background-color: v.$yellow;
+}
+
+@media screen and (width<=575px) {
+  .resume-inner{
+    width: 530px;
+  }
+  body{
+    overflow-x: auto;
+  }
 }
 
