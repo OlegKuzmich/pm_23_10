@@ -24,9 +24,9 @@
   background-color: v.$yellow;
 }
 
-@media screen and (width<=575px) {
+@media screen and (width<=767px) {
   .resume-inner{
-    width: 530px;
+    width: 696px;
   }
   body{
     overflow-x: auto;

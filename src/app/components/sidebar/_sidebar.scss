@@ -2,9 +2,7 @@
 @use "../../scss/mixins" as m;
 @use "../../scss/extend";
 
-.dots{
-  display: none;
-}
+
 .sidebar-column{
   padding: 70px 0 0 40px;
 }
@@ -183,32 +181,4 @@
   .ribbon-bg-sidebar{
     width: 232px;
   }
-}
-
-@media screen and (width<=767px){
-  .ribbon-bg-sidebar{
-    width: 172px;
-  }
-  .me-extra{
-    display: none;
-  }
-  .info-extra{
-    display: none;
-  }
-  .dots{
-    display: inline;
-  }
-
-  .section-block-about{
-    .small-yellow-rectangle {
-      display: none;
-    }
-  }
-
- .section-block-contact {
-   .small-yellow-rectangle {
-     display: none;
-   }
- }
-
 }
