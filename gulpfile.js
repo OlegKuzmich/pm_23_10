@@ -70,7 +70,7 @@ function serve() {
     watch('src/app/**/*.html', htmlTask);
     watch('src/app/**/*.scss', scssTask);
     watch('src/app/js/*.js', jsTask);
-    watch('src/app/json/*.json', json_task());
+    watch('src/app/json/*.json', json_task);
 }
 
 // Головна задача
